@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title></title>
+    </head>
+
+    <style>
+        body {
+            outline: none;
+        }
+        button,
+        input[type="submit"] {
+            font-size: 20px;
+            background: lightblue;
+            border-color: lightblue;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            cursor: pointer;
+        }
+
+        form,
+        #state {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 25vh;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 20%;
+            height: 35px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input::placeholder {
+            font-size: 20px;
+        }
+
+        a {
+            color: blue;
+        }
+
+        a:hover {
+            color: orange;
+        }
+    </style>
+
+    <body>
+        <form id="frm" action="/submitForm" method="POST">
+            <input
+                required
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+            />
+            <br />
+            <br />
+
+            <input
+                required
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+            />
+            <br />
+            <br />
+
+            <input
+                required
+                name="pass"
+                type="password"
+                placeholder="Password"
+            />
+            <br />
+            <br />
+
+            <input
+                required
+                name="email"
+                type="email"
+                placeholder="Email Address"
+            />
+            <br />
+            <br />
+
+            <label for="">Gender: </label>
+            <label for="">Male</label>
+            <input name="gender" type="radio" value="Male" />
+            <label for="">Female</label>
+            <input name="gender" type="radio" value="Female" />
+            <br />
+            <br />
+            <select required name="country" id="country" name="">
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Russia">Russia</option>
+            </select>
+            <br />
+            <br />
+
+            <select name="state" id="state" name="">
+                <option value="">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Andaman and Nicobar Islands"
+                    >Andaman and Nicobar Islands</option
+                >
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadar and Nagar Haveli"
+                    >Dadar and Nagar Haveli</option
+                >
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option></select
+            >
+            <br />
+            <button id="cancel">Cancel</button>
+            <input type="submit" value="Submit" />
+
+            <br />
+            <br />
+
+            <a href="/showTable">Show Table</a>
+        </form>
+    </body>
+    <script>
+        let f = document.querySelector("#frm");
+        let can = document.querySelector("#cancel");
+        let country = document.querySelector("#country");
+        let state = document.querySelector("#state");
+        state.style.display = "none";
+        state.style.margin = "auto";
+
+        country.addEventListener("change", e => {
+            if (e.target.value === "India") state.style.display = "block";
+        });
+
+        can.addEventListener("click", () => {
+            f.reset();
+        });
+
+        f.addEventListener("submit", () => {
+            console.log("done");
+        });
+    </script>
+</html>

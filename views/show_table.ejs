@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+#employee {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#employee td, #employee th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#employee tr:nth-child(even){background-color: #f2f2f2;}
+
+#employee tr:hover {background-color: #ddd;}
+
+#employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<body>
+    <h1>Hola</h1>
+    <table id="employee">
+        <tr>
+            <th>Name</th>
+           <th>Email</th>
+            <th>Password</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>State</th>
+        </tr>
+
+        <% for (let t=1;t<data.length;++t) { %>
+        <tr>
+            <td><%= data[t].name %> </td>
+            <td><%= data[t].email %> </td>
+            <td><%= data[t].pass %> </td>
+            <td><%= data[t].country %> </td>
+            <td><%= data[t].gender %> </td>
+            <td>
+            <% if (data[t].state) %>
+                <%= data[t].state %>
+
+                <% if (!data[t].state) { %>
+                    -
+                <% } %>
+            </td>
+        </tr>
+        <% } %> 
+
+    </table>
+    <br>
+    <a href="/">Home</a>
+</body>
+</html>
